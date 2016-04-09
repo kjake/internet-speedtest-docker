@@ -12,6 +12,6 @@ do
 	echo "Download: $DOWNLOAD Upload: $UPLOAD    $TIMESTAMP"
 	curl -i -XPOST 'http://db:8086/write?db=speedtest' --data-binary "download,host=local value=$DOWNLOAD"
 	curl -i -XPOST 'http://db:8086/write?db=speedtest' --data-binary "upload,host=local value=$UPLOAD"
-	sleep $TIME_SLEEP
+	sleep $TEST_INTERVAL
 
 done
