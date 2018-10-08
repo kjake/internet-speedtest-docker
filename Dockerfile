@@ -1,4 +1,4 @@
-FROM grafana/grafana:5.0.4
+FROM grafana/grafana:5.1.0
 MAINTAINER kjake
 
 ADD conf/grafana.db /var/lib/grafana/grafana.db
