@@ -5,7 +5,7 @@ RUN apk --no-cache add -f \
     curl \
     && rm -rf /var/cache/apk/* \
     && mkdir -p /app/speedtest/ \
-    && wget https://raw.github.com/sivel/speedtest-cli/master/speedtest.py-O /app/speedtest/speedtest.py \
+    && wget https://raw.github.com/sivel/speedtest-cli/master/speedtest.py -O /app/speedtest/speedtest.py \
     && chmod +x /app/speedtest/speedtest.py \
     && adduser -S speedtest
 USER speedtest
