@@ -1,5 +1,5 @@
-FROM grafana/grafana
-MAINTAINER Pedro César <pedrocesar.ti@gmail.com>
+FROM grafana/grafana:4.6.4
+MAINTAINER kjake
 
 ADD conf/grafana.db /var/lib/grafana/grafana.db
 ADD conf/home.json /usr/share/grafana/public/dashboards/home.json
