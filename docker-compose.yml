@@ -1,4 +1,3 @@
----
 version: '2'
 services:
   db:
@@ -13,7 +12,7 @@ services:
       - INFLUXDB_ADMIN_PASSWORD=password
       - INFLUXDB_DB=speedtest
   web:
-    image: pedrocesarti/internet-speedtest-docker:grafana
+    image: kjake/internet-speedtest-docker:grafana
     container_name: speedweb
     ports:
       - "3000:3000"
@@ -28,7 +27,7 @@ services:
     networks:
       - default
     environment:
-      - TEST_INTERVAL=5
+      - TEST_INTERVAL=30
 
 networks:
   default:
