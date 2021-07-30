@@ -14,4 +14,6 @@ ENV GF_AUTH_ANONYMOUS_ENABLED true
 
 USER grafana
 
+RUN echo hi
+
 ENTRYPOINT ["/run.sh"]
