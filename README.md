@@ -1,4 +1,5 @@
 # internet-speedtest-docker
+# Notable change: Update your influxdb def to influxdb:1.8 to continue using this solution - it is not compatible with influxdb:2.
 
 __**Spoiler Alert**__
 
@@ -6,13 +7,13 @@ This project won't help you with your connection, actually this project born whe
 
 Here in Brazil is a mess to contract a good ISP, they just don't deliver the speed they should for the users. Generally in a small business or a residence you can't pay for a very expensive plans where they certify the bandwidth delivered. So you have to call them many times complaining about the speed of your internet connection and always they will ask you to do that Internet Tests Online, such as [SpeedTest](http://www.speedtest.net), [AT&T SpeedTest](http://www.att.com/speedtest/), [TestMyNet](http://testmy.net), most of these tests are based only on ICMP messages that don't reflect your real bandwidth at that time. Or even worse your ISP can allow all trafic ICMP so when you test it appears that you have a good speed but when you have to download some content you can't do it that well. There is much more to talk about it but I don't wanna spend so much time talking about the things that are wrong here.
 
-<p align="center"><img src="https://dl.dropboxusercontent.com/s/l0py4zgi5izcbgw/Screen%20Shot%202017-02-27%20at%2023.55.16.png"Grafana"></p>
+<p align="center"><img src="https://i.imgur.com/sSOvByb.png"Grafana"></p>
 
 ## Running container
 The only requirement to run this compose is have Docker Compose installed, if you need to install you can [click here](https://docs.docker.com/compose/install/) to check out how can you do that. After installed the only thing you need is export the variables that you like and configure the volume for persistent data, then run the compose as command available below:
 
 ```console
-$ git clone https://github.com/pedrocesar-ti/internet-speedtest-docker.git
+$ git clone https://github.com/kjake/internet-speedtest-docker.git
 $ cd internet-speedtest-docker
 
 $ docker-compose up -d 
@@ -24,8 +25,6 @@ As you probably know Docker Compose is a tool to let you running a multi-contain
 ### InfluxDB (DB)
 InfluxDB is a database tool based on time-series, so every event is registrate with their timestamp. I decided to use InfluxDB at first because has great integration with Grafana and second I don't take cara about timestamp and how generate the graphs based on time.
 
-<p align="center"><img src="https://dl.dropboxusercontent.com/s/u8urqvu85ob8zdn/Screen%20Shot%202017-02-28%20at%2000.03.36.png"InfluxDB"></p>
-
 This project uses the official InfluxDB image hosted in the Docker Hub Library.
 
 You can edit or remove the volumes section of the docker-compose.yml file to reflect where you want you persistent data to live, or you can remove it if you like.   If you remove the volume mount you will lose all of your data if the container is removed.
@@ -33,7 +32,7 @@ You can edit or remove the volumes section of the docker-compose.yml file to ref
 ```docker-compose.yml
 services:
   db:
-    image: influxdb 
+    image: influxdb:1.8
     container_name: influxdb
     volumes:
       - "/data/influxdb/:/var/lib/influxdb"
