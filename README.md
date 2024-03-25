@@ -1,5 +1,5 @@
-# internet-speedtest-docker
-# Notable change: Update your influxdb def to influxdb:1.8 to continue using this solution - it is not compatible with influxdb:2.
+> [!IMPORTANT]
+> Update your influxdb image tag to use influxdb:1.8 to continue using this solution - it is not compatible with influxdb:2.
 
 __**Spoiler Alert**__
 
