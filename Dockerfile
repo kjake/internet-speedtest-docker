@@ -1,5 +1,5 @@
 FROM python:alpine
-MAINTAINER kjake
+LABEL maintainer="kjake"
 RUN apk --no-cache add -f curl \
     && rm -rf /var/cache/apk/* \
     && mkdir -p /app/speedtest/ \
